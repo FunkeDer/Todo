@@ -3,6 +3,7 @@ let undone_things = document.getElementById('undone_things_block');
 let undone_things_block = document.getElementById('undone_things_block');
 const done_things_block = document.getElementById('done_things_block');
 const user_input = document.getElementById('user_input');
+let sliceUserInput = user_input.value.match(/.{1,20}/g)
 
 
 document.addEventListener('keydown', function(event) {
@@ -37,6 +38,7 @@ function moveToDone(event) {
 function deleteAdded(event) {
   event.target.parentElement.remove();
 }
+
 
 function createUndoneThing(task) {
   let undone_things = [];
@@ -87,19 +89,32 @@ function createUndoneThing(task) {
 }
 
 function addInput() {
-
-  //   for(let i = 0; i<1; i++){
-  //     let sliced_user_input = user_input.value.match(/.{1,3}/g)
-  //     return sliced_user_input
-  // }
-  const whatTodo = user_input.value.trim();
-  if (!whatTodo) {
+  
+  if (!user_input.value) {
     alert("Please, add input")
     return;
   }
+  if(user_input.value.length > 49){
 
-  const undone_thing = createUndoneThing(whatTodo);
+      let sliced_user_input = user_input.value.match(/.{1,30}/g);
+      if (sliced_user_input) {
+        for(let i = 0; i < sliced_user_input.length; i++){
+          if(sliced_user_input[i].includes(',')){
+            sliced_user_input[i] = sliced_user_input[i].replace(',', ',\n');
+          }
+        }
+      }
+  const formattedString = sliced_user_input.join(' ');
+  const undone_thing = createUndoneThing(formattedString);
   undone_things.appendChild(undone_thing);
+    return;
+  }else{
+    const undone_thing = createUndoneThing(user_input.value);
+  undone_things.appendChild(undone_thing);
+  }
+
+
+  
 
   user_input.value = '';
   // Check the length of children in the undone_things_block
