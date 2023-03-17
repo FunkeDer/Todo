@@ -87,6 +87,11 @@ function createUndoneThing(task) {
 }
 
 function addInput() {
+
+  //   for(let i = 0; i<1; i++){
+  //     let sliced_user_input = user_input.value.match(/.{1,3}/g)
+  //     return sliced_user_input
+  // }
   const whatTodo = user_input.value.trim();
   if (!whatTodo) {
     alert("Please, add input")
