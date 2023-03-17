@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+    
+   
+    <title>Todo list</title>
+</head>
+<body class="body" >
+    <div class="container">
+        <div class="todo_block">
+            <h1 class="todo__head_text">Todo list</h1>
+            <div class="input_block">        
+                <input type="text" class="todo_input" placeholder="Enter a thing to do" id="user_input">
+                <button class="todo_btn" id="button" onclick="addInput()" onclick="changeNameOfHeads()">Add</button>
+            </div>
+            
+            <div class="things" >
+                <h4 name="uncompletedHead" id="uncompletedHead" style="display: none;">Uncompleted things</h4>
+                <div class="undone_things-block"  id="undone_things_block">
+            </div>
+            <h4 id="completedHead" style="display: none;">Completed things</h4>
+            <div class="done_things" >
+                <div class="done-things-block" id="done_things_block">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<script src="https://kit.fontawesome.com/534a8b1409.js" crossorigin="anonymous"></script>
+</html>
